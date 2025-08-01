@@ -10,6 +10,54 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Adventure Popup functionality
+    const adventurePopup = document.getElementById('adventure-popup');
+    const popupClose = document.querySelector('.popup-close');
+
+    // Find the adventure link
+    const adventureLinks = document.querySelectorAll('a[href="#"]');
+    let adventureLinkElement = null;
+    adventureLinks.forEach(link => {
+        if (link.textContent.includes('Adventure & Wildlife')) {
+            adventureLinkElement = link;
+        }
+    });
+
+    // Open popup when adventure link is clicked
+    if (adventureLinkElement) {
+        adventureLinkElement.addEventListener('click', function(e) {
+            e.preventDefault();
+            adventurePopup.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+    }
+
+    // Close popup when close button is clicked
+    if (popupClose) {
+        popupClose.addEventListener('click', function() {
+            adventurePopup.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+    }
+
+    // Close popup when clicking outside the popup content
+    if (adventurePopup) {
+        adventurePopup.addEventListener('click', function(e) {
+            if (e.target === adventurePopup) {
+                adventurePopup.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+
+    // Close popup with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && adventurePopup.style.display === 'block') {
+            adventurePopup.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+
     // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll('a[href^="#"]');
     navLinks.forEach(link => {
