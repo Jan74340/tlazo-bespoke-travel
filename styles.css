@@ -291,7 +291,7 @@ h1, h2, h3, h4 {
 }
 
 .experience-card:nth-child(1) .experience-image {
-    background: url('https://cdn.pixabay.com/photo/2017/12/15/13/51/polynesia-3021072_1280.jpg') center/cover;
+    background: url('images/Sloth1.jpeg') center/cover;
 }
 
 .experience-card:nth-child(2) .experience-image {
@@ -299,7 +299,7 @@ h1, h2, h3, h4 {
 }
 
 .experience-card:nth-child(3) .experience-image {
-    background: url('https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_1280.jpg') center/cover;
+    background: url('images/Catamaran1.jpeg') center/cover;
 }
 
 .experience-image::after {
