@@ -295,7 +295,7 @@ h1, h2, h3, h4 {
 }
 
 .experience-card:nth-child(2) .experience-image {
-    background: url('https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg') center/cover;
+    background: url('images/Mountain1 .png') center/cover;
 }
 
 .experience-card:nth-child(3) .experience-image {
