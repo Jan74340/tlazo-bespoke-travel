@@ -353,9 +353,11 @@ h1, h2, h3, h4 {
 
 .destinations-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 300px);
-    gap: 1rem;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .destination-card {
@@ -369,29 +371,21 @@ h1, h2, h3, h4 {
 }
 
 .destination-card:nth-child(1) {
-    background: url('https://cdn.pixabay.com/photo/2019/06/24/06/15/costa-rica-4293781_1280.jpg') center/cover;
+    background: url('https://images.unsplash.com/photo-1544551763-46a013bb70f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover;
 }
 
 .destination-card:nth-child(2) {
-    background: url('https://cdn.pixabay.com/photo/2019/12/09/11/21/arenal-volcano-4683556_1280.jpg') center/cover;
+    background: url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover;
 }
 
 .destination-card:nth-child(3) {
-    background: url('https://cdn.pixabay.com/photo/2016/11/21/16/05/forest-1846766_1280.jpg') center/cover;
+    background: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover;
 }
 
 .destination-card:nth-child(4) {
-    background: url('https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_1280.jpg') center/cover;
+    background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover;
 }
 
-.destination-card:nth-child(5) {
-    background: url('https://cdn.pixabay.com/photo/2017/12/15/13/51/polynesia-3021072_1280.jpg') center/cover;
-}
-
-.destination-card.large {
-    grid-column: span 2;
-    grid-row: span 2;
-}
 
 .destination-card:hover {
     transform: scale(1.02);
@@ -950,12 +944,8 @@ h1, h2, h3, h4 {
     
     .destinations-grid {
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(5, 250px);
-    }
-    
-    .destination-card.large {
-        grid-column: span 1;
-        grid-row: span 1;
+        grid-template-rows: repeat(4, 250px);
+        gap: 1rem;
     }
     
     .about-content,
