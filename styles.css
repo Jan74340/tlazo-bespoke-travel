@@ -694,6 +694,77 @@ h1, h2, h3, h4 {
     }
 }
 
+/* Newsletter Signup */
+.newsletter-signup {
+    margin-top: 40px;
+    padding: 30px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 15px;
+    border: 1px solid #e0e0e0;
+}
+
+.newsletter-signup h3 {
+    color: #2c5530;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.newsletter-signup > p {
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.newsletter-form {
+    margin: 0;
+}
+
+.newsletter-input-group {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.newsletter-input-group input[type="email"] {
+    flex: 1;
+    padding: 15px 20px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.newsletter-input-group input[type="email"]:focus {
+    outline: none;
+    border-color: #4a7c59;
+    box-shadow: 0 0 0 3px rgba(74, 124, 89, 0.1);
+}
+
+.newsletter-btn {
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #4a7c59 0%, #2c5530 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    white-space: nowrap;
+}
+
+.newsletter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 124, 89, 0.3);
+}
+
+.newsletter-privacy {
+    font-size: 14px;
+    color: #888;
+    margin: 0;
+    text-align: center;
+}
+
 /* Why Choose Tlazo Section */
 .why-choose {
     padding: 100px 0;
@@ -952,6 +1023,15 @@ h1, h2, h3, h4 {
     .contact-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+    
+    .newsletter-input-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .newsletter-btn {
+        width: 100%;
     }
     
     .footer-content {

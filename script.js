@@ -77,6 +77,43 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Newsletter form functionality
+    const newsletterForm = document.getElementById('newsletter-form');
+    
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const emailInput = document.getElementById('newsletter-email');
+            const submitBtn = document.querySelector('.newsletter-btn');
+            const email = emailInput.value.trim();
+            
+            if (email) {
+                // Show loading state
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Subscribing...';
+                submitBtn.disabled = true;
+                
+                // Simulate API call (replace with actual newsletter service)
+                setTimeout(() => {
+                    // Show success message
+                    submitBtn.textContent = 'Subscribed!';
+                    submitBtn.style.background = '#28a745';
+                    emailInput.value = '';
+                    
+                    // Reset button after 3 seconds
+                    setTimeout(() => {
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                        submitBtn.style.background = '';
+                    }, 3000);
+                    
+                    console.log('Newsletter subscription:', email);
+                }, 1000);
+            }
+        });
+    }
+
     // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll('a[href^="#"]');
     navLinks.forEach(link => {
