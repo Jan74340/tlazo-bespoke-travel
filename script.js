@@ -1,4 +1,6 @@
 // Mobile Menu Toggle
+console.log('JavaScript file loaded!');
+
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM Content Loaded - Script is running!');
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
@@ -189,50 +191,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('destination-img-3').src = data.images[2];
                 document.getElementById('destination-popup-text').textContent = data.description;
                 
+                console.log('About to reset scroll positions...');
+                
                 // Reset popup scroll position to top
                 const popupBody = document.querySelector('.destination-popup-body');
-                const popupContent = document.querySelector('.destination-popup-content');
-                const popupOverlay = document.querySelector('.destination-popup-overlay');
-                
-                console.log('Resetting scroll positions...');
-                console.log('popupBody:', popupBody);
-                console.log('popupContent:', popupContent);
-                
-                // Try resetting scroll on multiple elements
                 if (popupBody) {
-                    console.log('Before reset - popupBody scrollTop:', popupBody.scrollTop);
                     popupBody.scrollTop = 0;
-                    console.log('After reset - popupBody scrollTop:', popupBody.scrollTop);
+                    console.log('Reset popupBody scroll to 0');
                 }
-                if (popupContent) {
-                    console.log('Before reset - popupContent scrollTop:', popupContent.scrollTop);
-                    popupContent.scrollTop = 0;
-                    console.log('After reset - popupContent scrollTop:', popupContent.scrollTop);
-                }
-                if (popupOverlay) {
-                    popupOverlay.scrollTop = 0;
-                }
-                
-                // Also reset document scroll
-                document.documentElement.scrollTop = 0;
-                document.body.scrollTop = 0;
                 
                 // Show popup
                 destinationPopup.style.display = 'block';
                 document.body.style.overflow = 'hidden';
-                console.log('Popup display set to block'); // Debug log
-                
-                // Try resetting scroll again after popup is displayed
-                setTimeout(() => {
-                    if (popupBody) {
-                        popupBody.scrollTop = 0;
-                        console.log('Delayed reset - popupBody scrollTop:', popupBody.scrollTop);
-                    }
-                    if (popupContent) {
-                        popupContent.scrollTop = 0;
-                        console.log('Delayed reset - popupContent scrollTop:', popupContent.scrollTop);
-                    }
-                }, 50);
+                console.log('Popup should now be visible');
             } else {
                 console.log('Missing data or popup element:', {
                     data: !!data,
