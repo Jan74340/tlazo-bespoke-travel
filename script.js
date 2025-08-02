@@ -191,14 +191,48 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Reset popup scroll position to top
                 const popupBody = document.querySelector('.destination-popup-body');
+                const popupContent = document.querySelector('.destination-popup-content');
+                const popupOverlay = document.querySelector('.destination-popup-overlay');
+                
+                console.log('Resetting scroll positions...');
+                console.log('popupBody:', popupBody);
+                console.log('popupContent:', popupContent);
+                
+                // Try resetting scroll on multiple elements
                 if (popupBody) {
+                    console.log('Before reset - popupBody scrollTop:', popupBody.scrollTop);
                     popupBody.scrollTop = 0;
+                    console.log('After reset - popupBody scrollTop:', popupBody.scrollTop);
                 }
+                if (popupContent) {
+                    console.log('Before reset - popupContent scrollTop:', popupContent.scrollTop);
+                    popupContent.scrollTop = 0;
+                    console.log('After reset - popupContent scrollTop:', popupContent.scrollTop);
+                }
+                if (popupOverlay) {
+                    popupOverlay.scrollTop = 0;
+                }
+                
+                // Also reset document scroll
+                document.documentElement.scrollTop = 0;
+                document.body.scrollTop = 0;
                 
                 // Show popup
                 destinationPopup.style.display = 'block';
                 document.body.style.overflow = 'hidden';
                 console.log('Popup display set to block'); // Debug log
+                
+                // Try resetting scroll again after popup is displayed
+                setTimeout(() => {
+                    if (popupBody) {
+                        popupBody.scrollTop = 0;
+                        console.log('Delayed reset - popupBody scrollTop:', popupBody.scrollTop);
+                    }
+                    if (popupContent) {
+                        popupContent.scrollTop = 0;
+                        console.log('Delayed reset - popupContent scrollTop:', popupContent.scrollTop);
+                    }
+                }, 50);
             } else {
                 console.log('Missing data or popup element:', {
                     data: !!data,
