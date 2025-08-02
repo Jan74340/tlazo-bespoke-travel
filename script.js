@@ -1,5 +1,6 @@
 // Mobile Menu Toggle
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM Content Loaded - Script is running!');
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
     
@@ -115,9 +116,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Destination popup functionality
+    console.log('Setting up destination popup functionality...');
     const destinationPopup = document.getElementById('destination-popup');
     const destinationCards = document.querySelectorAll('.destination-card');
     const destinationPopupClose = document.querySelector('.destination-popup-close');
+    
+    console.log('Destination popup element:', destinationPopup);
+    console.log('Destination cards found:', destinationCards.length);
+    console.log('Destination popup close button:', destinationPopupClose);
     
     // Destination data
     const destinationData = {
@@ -160,18 +166,22 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     
     // Open destination popup
-    destinationCards.forEach(card => {
+    destinationCards.forEach((card, index) => {
+        console.log(`Card ${index}:`, card);
+        console.log(`Card ${index} data-destination:`, card.getAttribute('data-destination'));
+        
         card.addEventListener('click', function(e) {
             e.preventDefault();
-            console.log('Destination card clicked!'); // Debug log
+            console.log('Destination card clicked!', this); // Debug log
             
             const destination = this.getAttribute('data-destination');
             console.log('Destination:', destination); // Debug log
             
             const data = destinationData[destination];
-            console.log('Data:', data); // Debug log
+            console.log('Data found:', data); // Debug log
             
             if (data && destinationPopup) {
+                console.log('Updating popup content...');
                 // Update popup content
                 document.getElementById('destination-popup-title').textContent = data.title;
                 document.getElementById('destination-img-1').src = data.images[0];
@@ -182,9 +192,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Show popup
                 destinationPopup.style.display = 'block';
                 document.body.style.overflow = 'hidden';
-                console.log('Popup should be visible now'); // Debug log
+                console.log('Popup display set to block'); // Debug log
             } else {
-                console.log('Data or popup not found'); // Debug log
+                console.log('Missing data or popup element:', {
+                    data: !!data,
+                    popup: !!destinationPopup,
+                    destination: destination
+                });
             }
         });
     });
