@@ -114,6 +114,98 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Destination popup functionality
+    const destinationPopup = document.getElementById('destination-popup');
+    const destinationCards = document.querySelectorAll('.destination-card');
+    const destinationPopupClose = document.querySelector('.destination-popup-close');
+    
+    // Destination data
+    const destinationData = {
+        'central-pacific': {
+            title: 'Central Pacific',
+            images: [
+                'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1544551763-46a013bb70f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            ],
+            description: 'Experience the perfect blend of pristine beaches and lush rainforest in Costa Rica\'s Central Pacific region. Manuel Antonio National Park offers exclusive wildlife encounters with sloths, colorful birds, and playful monkeys, while luxury beachfront resorts provide world-class amenities. Enjoy private beach access, gourmet dining with ocean views, and adventure activities like zip-lining through the canopy. This region perfectly balances relaxation and adventure, making it ideal for couples and families seeking both luxury and authentic Costa Rican experiences in one of the country\'s most biodiverse areas.'
+        },
+        'northern-plains': {
+            title: 'Northern Plains', 
+            images: [
+                'https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            ],
+            description: 'Discover the dramatic landscapes of Costa Rica\'s Northern Plains, dominated by the majestic Arenal Volcano and surrounded by pristine rainforest. Stay in exclusive eco-lodges with volcano views, enjoy private access to natural hot springs, and experience world-class adventure activities. The region offers unique opportunities for wildlife viewing, including rare birds and exotic mammals. Luxury accommodations feature spa treatments using volcanic minerals, gourmet cuisine highlighting local ingredients, and guided tours through cloud forests and hanging bridges. This destination combines natural wonder with sophisticated comfort for the ultimate volcanic luxury experience.'
+        },
+        'caribbean-coast': {
+            title: 'Caribbean Coast',
+            images: [
+                'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1544551763-46a013bb70f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            ],
+            description: 'Immerse yourself in the vibrant Afro-Caribbean culture and pristine wilderness of Costa Rica\'s Caribbean Coast. This unique region offers black sand beaches, crystal-clear rivers, and some of the country\'s most diverse wildlife. Stay in luxury eco-lodges nestled in primary rainforest, where you can observe sea turtles nesting, explore coral reefs, and encounter rare species like the jaguar and manatee. Experience authentic Caribbean cuisine, reggae rhythms, and warm hospitality while enjoying modern luxury amenities. The region provides exclusive access to remote beaches, private nature reserves, and cultural experiences unavailable elsewhere in Costa Rica.'
+        },
+        'south-pacific': {
+            title: 'South Pacific',
+            images: [
+                'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            ],
+            description: 'Venture into Costa Rica\'s most remote and biodiverse region, the South Pacific, home to the legendary Osa Peninsula and Corcovado National Park. This pristine wilderness sanctuary hosts 2.5% of the world\'s biodiversity in less than 0.1% of its landmass. Stay in exclusive jungle lodges accessible only by private plane, where luxury meets raw nature. Experience unparalleled wildlife viewing including scarlet macaws, tapirs, and all four Costa Rican monkey species. Enjoy world-class sport fishing, private beach access, and guided expeditions through primary rainforest. This destination offers the ultimate eco-luxury experience for adventurous travelers seeking untouched natural beauty and exceptional comfort.'
+        }
+    };
+    
+    // Open destination popup
+    destinationCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const destination = this.getAttribute('data-destination');
+            const data = destinationData[destination];
+            
+            if (data) {
+                // Update popup content
+                document.getElementById('destination-popup-title').textContent = data.title;
+                document.getElementById('destination-img-1').src = data.images[0];
+                document.getElementById('destination-img-2').src = data.images[1]; 
+                document.getElementById('destination-img-3').src = data.images[2];
+                document.getElementById('destination-popup-text').textContent = data.description;
+                
+                // Show popup
+                destinationPopup.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+    
+    // Close destination popup
+    if (destinationPopupClose) {
+        destinationPopupClose.addEventListener('click', function() {
+            destinationPopup.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+    }
+    
+    // Close popup when clicking outside
+    if (destinationPopup) {
+        destinationPopup.addEventListener('click', function(e) {
+            if (e.target === destinationPopup) {
+                destinationPopup.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+    
+    // Close popup with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && destinationPopup.style.display === 'block') {
+            destinationPopup.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+
     // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll('a[href^="#"]');
     navLinks.forEach(link => {

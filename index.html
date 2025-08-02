@@ -101,27 +101,27 @@
             <div class="container">
                 <h2 class="section-title">Curated Destinations</h2>
                 <div class="destinations-grid">
-                    <div class="destination-card">
+                    <div class="destination-card" data-destination="central-pacific">
                         <div class="destination-overlay">
-                            <h3>Manuel Antonio</h3>
+                            <h3>Central Pacific</h3>
                             <p>Luxury beachfront resorts meet pristine national park</p>
                         </div>
                     </div>
-                    <div class="destination-card">
+                    <div class="destination-card" data-destination="northern-plains">
                         <div class="destination-overlay">
-                            <h3>Arenal Volcano</h3>
+                            <h3>Northern Plains</h3>
                             <p>Exclusive lodges with volcanic views</p>
                         </div>
                     </div>
-                    <div class="destination-card">
+                    <div class="destination-card" data-destination="caribbean-coast">
                         <div class="destination-overlay">
-                            <h3>Osa Peninsula</h3>
+                            <h3>Caribbean Coast</h3>
                             <p>Remote wilderness luxury</p>
                         </div>
                     </div>
-                    <div class="destination-card">
+                    <div class="destination-card" data-destination="south-pacific">
                         <div class="destination-overlay">
-                            <h3>Monteverde</h3>
+                            <h3>South Pacific</h3>
                             <p>Cloud forest sanctuary experiences</p>
                         </div>
                     </div>
@@ -355,6 +355,26 @@
             </div>
         </section>
     </main>
+
+    <!-- Destination Popups -->
+    <div id="destination-popup" class="destination-popup-overlay">
+        <div class="destination-popup-content">
+            <button class="destination-popup-close">&times;</button>
+            <div class="destination-popup-header">
+                <h2 id="destination-popup-title">Destination Title</h2>
+            </div>
+            <div class="destination-popup-body">
+                <div class="destination-popup-images">
+                    <img id="destination-img-1" src="" alt="">
+                    <img id="destination-img-2" src="" alt="">
+                    <img id="destination-img-3" src="" alt="">
+                </div>
+                <div class="destination-popup-description">
+                    <p id="destination-popup-text">Destination description will appear here...</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Adventure & Wildlife Popup -->
     <div id="adventure-popup" class="popup-overlay">
