@@ -359,17 +359,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Destination cards hover effect
-    const destinationCards = document.querySelectorAll('.destination-card');
-    destinationCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.02)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
-        });
-    });
+    // Destination cards hover effect (already declared above, reusing same variable)
+    // destinationCards already declared above
+    // Additional hover effects can be added here if needed
 
     // Experience cards stagger animation
     const experienceCards = document.querySelectorAll('.experience-card');
