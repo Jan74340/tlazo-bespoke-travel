@@ -370,6 +370,10 @@ h1, h2, h3, h4 {
     transition: transform 0.3s ease;
 }
 
+.destination-card:hover {
+    transform: scale(1.02);
+}
+
 .destination-card:nth-child(1) {
     background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80') center/cover;
 }
@@ -384,11 +388,6 @@ h1, h2, h3, h4 {
 
 .destination-card:nth-child(4) {
     background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover;
-}
-
-
-.destination-card:hover {
-    transform: scale(1.02);
 }
 
 .destination-overlay {

@@ -161,11 +161,17 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Open destination popup
     destinationCards.forEach(card => {
-        card.addEventListener('click', function() {
-            const destination = this.getAttribute('data-destination');
-            const data = destinationData[destination];
+        card.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Destination card clicked!'); // Debug log
             
-            if (data) {
+            const destination = this.getAttribute('data-destination');
+            console.log('Destination:', destination); // Debug log
+            
+            const data = destinationData[destination];
+            console.log('Data:', data); // Debug log
+            
+            if (data && destinationPopup) {
                 // Update popup content
                 document.getElementById('destination-popup-title').textContent = data.title;
                 document.getElementById('destination-img-1').src = data.images[0];
@@ -176,6 +182,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Show popup
                 destinationPopup.style.display = 'block';
                 document.body.style.overflow = 'hidden';
+                console.log('Popup should be visible now'); // Debug log
+            } else {
+                console.log('Data or popup not found'); // Debug log
             }
         });
     });
