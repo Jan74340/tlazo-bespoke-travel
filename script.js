@@ -189,6 +189,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('destination-img-3').src = data.images[2];
                 document.getElementById('destination-popup-text').textContent = data.description;
                 
+                // Reset popup scroll position to top
+                const popupBody = document.querySelector('.destination-popup-body');
+                if (popupBody) {
+                    popupBody.scrollTop = 0;
+                }
+                
                 // Show popup
                 destinationPopup.style.display = 'block';
                 document.body.style.overflow = 'hidden';
@@ -206,6 +212,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Close destination popup
     if (destinationPopupClose) {
         destinationPopupClose.addEventListener('click', function() {
+            // Reset popup scroll position
+            const popupBody = document.querySelector('.destination-popup-body');
+            if (popupBody) {
+                popupBody.scrollTop = 0;
+            }
+            
             destinationPopup.style.display = 'none';
             document.body.style.overflow = 'auto';
         });
@@ -215,6 +227,12 @@ document.addEventListener('DOMContentLoaded', function() {
     if (destinationPopup) {
         destinationPopup.addEventListener('click', function(e) {
             if (e.target === destinationPopup) {
+                // Reset popup scroll position
+                const popupBody = document.querySelector('.destination-popup-body');
+                if (popupBody) {
+                    popupBody.scrollTop = 0;
+                }
+                
                 destinationPopup.style.display = 'none';
                 document.body.style.overflow = 'auto';
             }
@@ -224,6 +242,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Close popup with Escape key
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && destinationPopup.style.display === 'block') {
+            // Reset popup scroll position
+            const popupBody = document.querySelector('.destination-popup-body');
+            if (popupBody) {
+                popupBody.scrollTop = 0;
+            }
+            
             destinationPopup.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
